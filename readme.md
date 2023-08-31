@@ -2,6 +2,12 @@
 
 Its a simple logger made by me for my project peerplex _(its a secret)_ but then it was good fo i published it on npm for you all to use and enjoy
 
+### Installation
+
+```bash
+$ npm install @atom06/logger
+```
+
 ## How it Works 
 ```javascript
 import logger_module from "@atom06/logger" //import...duh
@@ -44,3 +50,5 @@ WARN-1264910.168:: warn
 ```
 
 were the middle numbers are the time of log
+
+thanks!!
