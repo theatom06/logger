@@ -1,0 +1,27 @@
+{
+  "name": "@atom06/logger",
+  "version": "1.0.0",
+  "description": "Logger by theatom06",
+  "type": "module",
+  "main": "logs.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/theatom06/logger.git"
+  },
+  "author": "theatom06",
+  "license": "SEE LICENSE IN license.md",
+  "bugs": {
+    "url": "https://github.com/theatom06/logger/issues"
+  },
+  "homepage": "https://github.com/theatom06/logger#readme",
+  "dependencies": {
+    "@atom06/file": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.5.6",
+    "typescript": "^5.2.2"
+  }
+}

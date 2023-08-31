@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "outDir": "dist",
+        "types": ["node"],
+        "strict": true,
+        "declaration": true,
+        "declarationMap": true,
+        "esModuleInterop": true,
+        "baseUrl": "./",
+        "moduleResolution": "Node"
+    },
+    "exclude": ["node_modules", "dist"]
+}
