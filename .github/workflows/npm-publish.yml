@@ -19,7 +19,7 @@ jobs:
           npm cache clean --force
 
       - name: Compile TypeScript code
-        run: npm run build # Replace with your actual build command
+        run: npx tsc
 
       - name: Publish to npm
         run: |
