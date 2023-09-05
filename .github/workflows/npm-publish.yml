@@ -1,29 +1,29 @@
-name: Node.js Package
+name: Publish Package
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - main # Change this to your main branch name if it's different
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
 
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npx tsc
-      - run: npm publish
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Clean npm install
+        run: |
+          npm ci
+          npm cache clean --force
+
+      - name: Compile TypeScript code
+        run: npm run build # Replace with your actual build command
+
+      - name: Publish to npm
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > ~/.npmrc
+          npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
