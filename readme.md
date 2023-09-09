@@ -1,54 +1,82 @@
-# atom06/logger
+# @atom06/logger
 
-Its a simple logger made by me for my project peerplex _(its a secret)_ but then it was good fo i published it on npm for you all to use and enjoy
+**@atom06/logger** is a versatile Node.js **logger module** designed to simplify logging and create log files for your projects. It allows you to log various types of messages, such as information, warnings, errors, and generic log entries, to timestamped log files. The log files are stored in a user-defined directory and follow a structured format for easy readability and analysis.
 
-### Installation
+## Features
+
+- Log Types: This logger module supports four types of log entries:
+
+  - info: General information about the application.
+  - warn: Warnings and non-critical issues.
+  - error: Errors that require attention.
+  - log: Generic log entries.
+  - Timestamps: Each log entry is timestamped with the current date and time, making it easy to track when events occurred.
+
+- Log File Creation: The module automatically creates a log file with a filename based on the current date. If the log directory does not exist, it is created as well.
+
+- Version Information: The module includes information about your project's version, platform, and start time in the log header.
+
+- Log Levels: The README provides a brief explanation of the available log levels and their meanings.
+- Type support: Since this is made with typescript it has types by default
+
+## Installation
+
+To use **@atom06/logger** in your Node.js project, you can install it via npm, yarn or anything:
 
 ```bash
 $ npm install @atom06/logger
+# or
+$ yarn add @atom06/logger
 ```
 
-## How it Works 
+## Usage
 ```javascript
-import logger_module from "@atom06/logger" //import...duh
+import createLoggerModule from '@atom06/logger';
 
-const logger = logger_module("your app name") //instalize with out app name
+// Create a logger instance with your project name
+const logger = await createLoggerModule('YourProjectName');
 
-logger.log("log", Date.now()?) //log anything u wanna and the date is optional
+// Log an information message
+await logger.info('This is an information message.');
 
-logger.error("error")
+// Log a warning message
+await logger.warn('This is a warning message.');
 
-logger.info("info")
+// Log an error message
+await logger.error('This is an error message.');
 
-logger.warn("warn")
+// Log a generic log entry
+await logger.log('This is a generic log entry.');
 ```
 
-What did that just do?
+### What did I just do?
 
-1. it created a hidden folder called .appname-logs in the homedir
+1. You made a log file at is stored in the user's home directory under a hidden folder named after your project _(e.g., ~/.YourProjectName-logs)_.
 
-2. it created a file MM-DD-YYYY_RRR.log.txt, where RRR is random number so i can make as many as i want to without freeing repeating number, YYYY year, DD date, MM month all nnumber
+2. It created a file MM-DD-YYYY_RRR.log.txt, where RRR is a random number so you can make as many as you want to without freeing repeating numbers, YYYY year, DD date, MM month all nnumber
 
-3. u logged 
+3. And you logged something into that
+
+## Log Structure
+
+It follows the following format: 
 ```
-================================================================
-                          a
-    Program  : a
-    Version  : 1.0.0
-    Platform : linux Linux 5.15.0-72-generic x64
-    Time     : 8 31 2023 
-\================================================================
-                            LOGS
-Log Levels:
-    - INFO: General information about the application.
-    - WARN: Warnings and non-critical issues.
-    - !ERR: Errors that require attention.
-    - $LOG: Generic log entries.$LOG-1693482024663::this is bulls
-!ERR-1693482024863:: error
-INFO-169348202476400:: info
-WARN-1264910.168:: warn
+LOG_LEVEL-TIMESTAMP::MESSAGE
+```
+- _**LOG_LEVEL**_ represents the log level _(e.g., INFO, WARN, !ERR, $LOG)_.
+- _**TIMESTAMP**_ is the timestamp when the log entry was created.
+- _**MESSAGE**_ is the actual log message.
+
+Here's an example of what a log entry might look like in the log file
+
+```
+INFO-123456::This is an information message.
 ```
 
-were the middle numbers are the time of log
+## Dependencies
+**@atom06/logger** uses the following Node.js built-in modules and external dependencies:
+- [`@atom06/file`](https://npm.im/@atom06/file): A dependency for file I/O operations.
 
-thanks!!
+## LICENSE
+
+This is licensed under [Carbon license](https://gist.githubusercontent.com/TheAtom06/6d520406e0d1d7612f29d31517888d90/raw/d059763580fe615f3f0d20cd105aa3c79b22727f/Carbon%2520License.md) ALTHOUGH NOT PLACED CODE, IT IS LICENSED UNDER THE CARBON LICENSE
