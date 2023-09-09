@@ -1,6 +1,6 @@
 {
   "name": "@atom06/logger",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Logger by theatom06",
   "type": "module",
   "main": "logs.ts",
